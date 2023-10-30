@@ -10,6 +10,13 @@ Here's a list of useful first party docs:
 * [Pinout Diagram](https://docs.google.com/spreadsheets/d/1U3z0Gb8HUEfCIMkvqzmhMpJfzRqjPXq7mFLC-hvbKlE/edit)
 * [Boot Troubleshooting](https://hub.libre.computer/t/troubleshooting-general-boot-issues/47)
 
+
+## Boot Setup
+1. Download boot image.
+  * [Official Supported Distributions](https://libre.computer/products/aml-s905x-cc/)
+  * [Direct link to Ubuntu 22.04 Server](https://distro.libre.computer/ci/ubuntu/22.04/ubuntu-22.04.3-preinstalled-server-arm64%2Baml-s905x-cc.img.xz)
+2. Copy to SD Card using [**Rufus**](https://rufus.ie/en/).
+
 ## Expected Boot Behavior
 (Taken and modified from [here](https://hub.libre.computer/t/aml-s905x-cc-boot-behavior/52))
 1. When power is attached, the red and blue LEDs will turn on, while the green LED remains off. At this time, There is no power to HDMI or USB. 
@@ -23,3 +30,8 @@ The [boot troubleshooting guide](https://hub.libre.computer/t/troubleshooting-ge
 * Ensure you're using a good SD card. Often times, the Le Potato will not even begin booting with a low-quality SD card. As a bare minimum, we use SanDisk Ultra Class I cards. 
 * Ensure that your imaging tool is correctly imaging the SD card. We have never found success with Win32DiskImager, only with Rufus. Check our #disk-imaging guide for more details
 * Ensure that your power supply is capable of delivering up to 1.5 amps, otherwise the board may brown out during boot.
+
+## Wifi Drivers
+* Wifi Driver available [here](https://github.com/morrownr/8821au-20210708) for TP-Link Archer T2U Plus High-Gain Wifi Antenna
+  * Installing this requires updating the default gcc version to gcc-12. `sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 50`
+*  `sudo nmcli dev wifi connect "SSID" password "PASSWORD"`
