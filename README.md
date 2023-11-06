@@ -35,3 +35,8 @@ The [boot troubleshooting guide](https://hub.libre.computer/t/troubleshooting-ge
 * Wifi Driver available [here](https://github.com/morrownr/8821au-20210708) for TP-Link Archer T2U Plus High-Gain Wifi Antenna
   * Installing this requires updating the default gcc version to gcc-12. `sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 50`
 *  `sudo nmcli dev wifi connect "SSID" password "PASSWORD"`
+
+## Setting Hostname
+* Comment `hostname` line in `/boot/efi/user-data`
+* Run `sudo hostnamectl set-hostname [HOSTNAME]` and reboot
+[Source](https://hub.libre.computer/t/hostname-keep-changing-when-reboot/138)
